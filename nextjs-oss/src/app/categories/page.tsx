@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 import Category from '@/components/categories/Category';
+import { Metadata } from 'next';
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate
 export const revalidate = 3600; // false | 0 | number (seconds)
@@ -14,6 +15,13 @@ async function getCategories() {
   const data = response.data;
   return data;
 }
+
+// Metadata
+// https://nextjs.org/docs/app/building-your-application/routing/layouts-and-templates#metadata
+export const metadata: Metadata = {
+  title: 'Categories',
+  description: 'Categories page',
+};
 
 type Props = {};
 
